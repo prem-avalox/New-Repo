@@ -29,6 +29,8 @@ CREATE TABLE
 CREATE TABLE
     DMAnimal (
         idAnimal INTEGER PRIMARY KEY AUTOINCREMENT,
+        Nombre VARCHAR (50) NOT NULL,
+        NombreCientifico VARCHAR (50) NOT NULL,
         idCatalogoSexo INTEGER NOT NULL REFERENCES DMCatalogo (idCatalogo),
         idCatalogoClasificacion INTEGER NOT NULL REFERENCES DMCatalogo (idCatalogo),
         idCatalogoGenoAlimento INTEGER NOT NULL REFERENCES DMCatalogo (idCatalogo),
