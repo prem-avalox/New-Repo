@@ -25,7 +25,7 @@ import UserInterface.CustomizeControl.DMLabel;
 import UserInterface.CustomizeControl.DMTextField;
 
 public class DMPanelMenu extends JPanel {
-    private String [] mdAlimentos = {"AX","AXX","AXY"};
+    private String[] mdAlimentos = { "AX", "AXX", "AXY" };
     private DMAnimalBL dmAnimalBL = new DMAnimalBL();
     private DMTextField idField = new DMTextField();
     private DMTextField nameField = new DMTextField();
@@ -43,11 +43,11 @@ public class DMPanelMenu extends JPanel {
 
         customizeComponent();
 
-        //  dmDeleteButton.addActionListener();
-        //  dmSaveButton.addActionListener();
+        // dmDeleteButton.addActionListener();
+        // dmSaveButton.addActionListener();
 
-        //  dmAddAnimal.addActionListener();
-        //  dmFeedAnimal.addActionListener();
+        // dmAddAnimal.addActionListener();
+        // dmFeedAnimal.addActionListener();
     }
 
     private void customizeComponent() {
@@ -57,7 +57,6 @@ public class DMPanelMenu extends JPanel {
 
         JPanel dmRightPanel = new JPanel();
         dmRightPanel.setPreferredSize(new Dimension(20, 480));
-
 
         JPanel dmNorthPanel = new JPanel();
         dmNorthPanel.setLayout(null);
@@ -75,18 +74,17 @@ public class DMPanelMenu extends JPanel {
         dmNorthPanel.setBackground(DMStyles.COLOR_FONT_BG);
         dmNorthPanel.setBorder(new LineBorder(DMStyles.COLOR_FONT, 1, true));
 
-
         JPanel auxButtonNorthPanel = new JPanel();
         auxButtonNorthPanel.setLayout(null);
         dmLabelTitle.setBounds(80, 10, 200, 50);
         dmAddAnimal.setBounds(480, 20, 140, 30);
         auxButtonNorthPanel.add(dmLabelTitle);
         auxButtonNorthPanel.add(dmAddAnimal);
-        auxButtonNorthPanel.setPreferredSize(new Dimension(680,60));
+        auxButtonNorthPanel.setPreferredSize(new Dimension(680, 60));
 
         JPanel auxButtonSouthPanel = new JPanel();
         auxButtonSouthPanel.setLayout(null);
-        auxButtonSouthPanel.setPreferredSize(new Dimension(680,100));
+        auxButtonSouthPanel.setPreferredSize(new Dimension(680, 100));
         JComboBox dmGenoAlimento = new JComboBox(mdAlimentos);
         dmGenoAlimento.setBounds(80, 10, 200, 50);
         dmFeedAnimal.setBounds(480, 20, 140, 30);
@@ -95,7 +93,7 @@ public class DMPanelMenu extends JPanel {
 
         JPanel dmCenterPanel = new JPanel();
         dmCenterPanel.setLayout(new BorderLayout());
-        
+
         tableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -111,29 +109,29 @@ public class DMPanelMenu extends JPanel {
         dmAnimalTable.setPreferredScrollableViewportSize(new Dimension(480, 200));
         dmAnimalTable.setBackground(DMStyles.COLOR_FONT_BG);
         dmAnimalTable.setSelectionForeground(DMStyles.COLOR_FOREGROUND);
-        
+
         JScrollPane tableScrollPane = new JScrollPane(dmAnimalTable);
         tableScrollPane.setPreferredSize(new Dimension(480, 200)); // Establecer un tamaño para el JScrollPane
-        
-        dmCenterPanel.add(auxButtonNorthPanel, BorderLayout.NORTH);//Agregar titulo y nuevo al panel
-        dmCenterPanel.add(auxButtonSouthPanel,BorderLayout.SOUTH);//Agregar comboBox y alimentar al panel
+
+        dmCenterPanel.add(auxButtonNorthPanel, BorderLayout.NORTH);// Agregar titulo y nuevo al panel
+        dmCenterPanel.add(auxButtonSouthPanel, BorderLayout.SOUTH);// Agregar comboBox y alimentar al panel
         dmCenterPanel.add(tableScrollPane, BorderLayout.CENTER); // Agregar el JScrollPane al panel
 
         loadAnimalsFromDatabase();
-        
+
         JPanel dmSouthPanel = new JPanel();
         dmSouthPanel.setLayout(new GridLayout(1, 2, 60, 0));
         dmSouthPanel.setBorder(new LineBorder(DMStyles.COLOR_FONT, 1, true));
         dmSouthPanel.add(dmSaveButton);
         dmSouthPanel.add(dmDeleteButton);
-        
+
         setLayout(new BorderLayout());
         add(dmLeftPanel, BorderLayout.WEST);
         add(dmRightPanel, BorderLayout.EAST);
         add(dmNorthPanel, BorderLayout.NORTH);
         add(dmCenterPanel, BorderLayout.CENTER);
         add(dmSouthPanel, BorderLayout.SOUTH);
-        
+
     }
 
     private void loadAnimalsFromDatabase() {
