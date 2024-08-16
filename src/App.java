@@ -5,7 +5,7 @@ import UserInterface.Forms.DMMainForm;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        new DMMainForm("EcuFauna");
+       new DMMainForm("EcuFauna");
         
         // // s.setIdSexo(3);
         // // s.setNombre("Hibrido");

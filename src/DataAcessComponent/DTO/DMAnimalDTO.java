@@ -4,12 +4,14 @@ public class DMAnimalDTO {
     private Integer idAnimal;
     private String nombre;
     private String nombreCientifico;
-    private Integer idCatalogoSexo;
-    private Integer idCatalogoClasificacion;
-    private Integer idCatalogoGenoAlimento;
+    private String idCatalogoSexo;
+    private String idCatalogoClasificacion;
+    private String idCatalogoGenoAlimento;
     private String Estado;
     private String FechaCreacion;
     private String FechaModifica;
+
+
 
     public Integer getIdAnimal() {
         return idAnimal;
@@ -35,27 +37,27 @@ public class DMAnimalDTO {
         this.nombreCientifico = nombreCientifico;
     }
 
-    public Integer getIdCatalogoSexo() {
+    public String getIdCatalogoSexo() {
         return idCatalogoSexo;
     }
 
-    public void setIdCatalogoSexo(Integer idCatalogoSexo) {
+    public void setIdCatalogoSexo(String idCatalogoSexo) {
         this.idCatalogoSexo = idCatalogoSexo;
     }
 
-    public Integer getIdCatalogoClasificacion() {
+    public String getIdCatalogoClasificacion() {
         return idCatalogoClasificacion;
     }
 
-    public void setIdCatalogoClasificacion(Integer idCatalogoClasificacion) {
+    public void setIdCatalogoClasificacion(String idCatalogoClasificacion) {
         this.idCatalogoClasificacion = idCatalogoClasificacion;
     }
 
-    public Integer getIdCatalogoGenoAlimento() {
+    public String getIdCatalogoGenoAlimento() {
         return idCatalogoGenoAlimento;
     }
 
-    public void setIdCatalogoGenoAlimento(Integer idCatalogoGenoAlimento) {
+    public void setIdCatalogoGenoAlimento(String idCatalogoGenoAlimento) {
         this.idCatalogoGenoAlimento = idCatalogoGenoAlimento;
     }
 
@@ -83,8 +85,8 @@ public class DMAnimalDTO {
         FechaModifica = fechaModifica;
     }
 
-    public DMAnimalDTO(Integer idAnimal, String nombre, String nombreCientifico, Integer idCatalogoSexo,
-            Integer idCatalogoClasificacion, Integer idCatalogoGenoAlimento, String estado, String fechaCreacion,
+    public DMAnimalDTO(Integer idAnimal, String nombre, String nombreCientifico, String idCatalogoSexo,
+            String idCatalogoClasificacion, String idCatalogoGenoAlimento, String estado, String fechaCreacion,
             String fechaModifica) {
         this.idAnimal = idAnimal;
         this.nombre = nombre;

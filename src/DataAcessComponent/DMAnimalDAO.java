@@ -25,9 +25,9 @@ public class DMAnimalDAO extends SQLiteDataHelper implements iDAO<DMAnimalDTO> {
             pstmt.setInt(1, entity.getIdAnimal());
             pstmt.setString(2, entity.getNombre());
             pstmt.setString(3, entity.getNombreCientifico());
-            pstmt.setInt(4, entity.getIdCatalogoSexo());
-            pstmt.setInt(5, entity.getIdCatalogoClasificacion());
-            pstmt.setInt(6, entity.getIdCatalogoGenoAlimento());
+            pstmt.setString(4, entity.getIdCatalogoSexo());
+            pstmt.setString(5, entity.getIdCatalogoClasificacion());
+            pstmt.setString(6, entity.getIdCatalogoGenoAlimento());
             pstmt.setString(7, entity.getEstado());
             pstmt.setString(8, entity.getFechaCreacion());
             pstmt.setString(9, entity.getFechaModifica());
@@ -41,7 +41,23 @@ public class DMAnimalDAO extends SQLiteDataHelper implements iDAO<DMAnimalDTO> {
     @Override
     public List<DMAnimalDTO> readAll() throws Exception {
         List<DMAnimalDTO> lst = new ArrayList<>();
-        String query = "SELECT idAnimal, nombre, nombreCientifico, idCatalogoSexo, idCatalogoClasificacion, idCatalogoGenoAlimento, Estado, FechaCreacion, FechaModifica FROM DMAnimal WHERE Estado = 'A'";
+        String query = "SELECT \n" + //
+                        "  a.idAnimal,\n" + //
+                        "  a.nombre,\n" + //
+                        "  a.nombreCientifico,\n" + //
+                        "  s.nombreCatalogo AS sexo,\n" + //
+                        "  c.nombreCatalogo AS clasificacion,\n" + //
+                        "  g.nombreCatalogo AS genoAlimento,\n" + //
+                        "  a.Estado,\n" + //
+                        "  a.FechaCreacion,\n" + //
+                        "  a.FechaModifica\n" + //
+                        "FROM \n" + //
+                        "  DMAnimal a\n" + //
+                        "  INNER JOIN DMCatalogo s ON a.idCatalogoSexo = s.idCatalogo\n" + //
+                        "  INNER JOIN DMCatalogo c ON a.idCatalogoClasificacion = c.idCatalogo\n" + //
+                        "  INNER JOIN DMCatalogo g ON a.idCatalogoGenoAlimento = g.idCatalogo\n" + //
+                        "WHERE \n" + //
+                        "  a.Estado = 'A'";
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -51,9 +67,9 @@ public class DMAnimalDAO extends SQLiteDataHelper implements iDAO<DMAnimalDTO> {
                         rs.getInt(1), // idAnimal
                         rs.getString(2), // nombre
                         rs.getString(3), // nombreCientifico
-                        rs.getInt(4), // idCatalogoSexo
-                        rs.getInt(5), // idCatalogoClasificacion
-                        rs.getInt(6), // idCatalogoGenoAlimento
+                        rs.getString(4), // idCatalogoSexo
+                        rs.getString(5), // idCatalogoClasificacion
+                        rs.getString(6), // idCatalogoGenoAlimento
                         rs.getString(7), // Estado
                         rs.getString(8), // FechaCreacion
                         rs.getString(9) // FechaModifica
@@ -76,9 +92,9 @@ public class DMAnimalDAO extends SQLiteDataHelper implements iDAO<DMAnimalDTO> {
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, entity.getNombre());
             pstmt.setString(2, entity.getNombreCientifico());
-            pstmt.setInt(3, entity.getIdCatalogoSexo());
-            pstmt.setInt(4, entity.getIdCatalogoClasificacion());
-            pstmt.setInt(5, entity.getIdCatalogoGenoAlimento());
+            pstmt.setString(3, entity.getIdCatalogoSexo());
+            pstmt.setString(4, entity.getIdCatalogoClasificacion());
+            pstmt.setString(5, entity.getIdCatalogoGenoAlimento());
             pstmt.setString(6, entity.getEstado());
             pstmt.setString(7, dtf.format(now).toString());
             pstmt.setInt(8, entity.getIdAnimal());
@@ -118,9 +134,9 @@ public class DMAnimalDAO extends SQLiteDataHelper implements iDAO<DMAnimalDTO> {
                         rs.getInt(1), // idAnimal
                         rs.getString(2), // nombre
                         rs.getString(3), // nombreCientifico
-                        rs.getInt(4), // idCatalogoSexo
-                        rs.getInt(5), // idCatalogoClasificacion
-                        rs.getInt(6), // idCatalogoGenoAlimento
+                        rs.getString(4), // idCatalogoSexo
+                        rs.getString(5), // idCatalogoClasificacion
+                        rs.getString(6), // idCatalogoGenoAlimento
                         rs.getString(7), // Estado
                         rs.getString(8), // FechaCreacion
                         rs.getString(9) // FechaModifica

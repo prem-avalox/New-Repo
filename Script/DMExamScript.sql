@@ -100,7 +100,23 @@ INSERT INTO DMAnimal
 ('Toro', 'Bos', 2, 6, 9);
 SELECT idAnimal, nombre, nombreCientifico, idCatalogoSexo, idCatalogoClasificacion, idCatalogoGenoAlimento, Estado, FechaCreacion, FechaModifica FROM DMAnimal WHERE Estado = 'A';
 
-
+SELECT 
+  a.idAnimal,
+  a.nombre,
+  a.nombreCientifico,
+  s.nombreCatalogo AS sexo,
+  c.nombreCatalogo AS clasificacion,
+  g.nombreCatalogo AS genoAlimento,
+  a.Estado,
+  a.FechaCreacion,
+  a.FechaModifica
+FROM 
+  DMAnimal a
+  INNER JOIN DMCatalogo s ON a.idCatalogoSexo = s.idCatalogo
+  INNER JOIN DMCatalogo c ON a.idCatalogoClasificacion = c.idCatalogo
+  INNER JOIN DMCatalogo g ON a.idCatalogoGenoAlimento = g.idCatalogo
+WHERE 
+  a.Estado = 'A';
 
 
 
