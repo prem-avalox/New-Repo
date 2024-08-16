@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public abstract class SQLiteDataHelper {
 
-    private static String DBPathConnection = "jdbc:sqlite:DataBase/DataBase.sqlite";
+    private static String DBPathConnection = "jdbc:sqlite:DataBase/MDDataBase.sqlite";
     private static Connection conn = null;
 
     protected static synchronized Connection openConnection() throws Exception {

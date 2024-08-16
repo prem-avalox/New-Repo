@@ -94,6 +94,13 @@ INSERT INTO DMLocacion
 ('Ecuador', 'Oriente', 'Zamora Chinchipe'),
 ('Ecuador', 'Insular', 'Galápagos');
 
+INSERT INTO DMAnimal
+(Nombre, NombreCientifico, idCatalogoSexo, idCatalogoClasificacion, idCatalogoGenoAlimento )VALUES
+('Aguila', 'Aguilitus', 1, 4, 8),
+('Toro', 'Bos', 2, 6, 9);
+SELECT idAnimal, nombre, nombreCientifico, idCatalogoSexo, idCatalogoClasificacion, idCatalogoGenoAlimento, Estado, FechaCreacion, FechaModifica FROM DMAnimal WHERE Estado = 'A';
+
+
 
 
 

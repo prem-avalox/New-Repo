@@ -21,7 +21,7 @@ public abstract class DMStyles {
     public static final Color COLOR_BORDER_BUTTON= new Color(0x292929);
     ///public static final Color COLOR_BACKGROUND= new Color(0x014f01);
     public static final Color COLOR_BACKGROUND= new Color(0x5802ba);
-    public static final Color COLOR_FOREGROUND = new Color(0xffc700);
+    public static final Color COLOR_FOREGROUND = new Color(0xff7300);
     public static final Color COLOR_FOREGROUND_PRESSED = new Color(0xBD9402);
 
     public static final Font FONT = new Font("Inconsolata", Font.PLAIN, 14);
