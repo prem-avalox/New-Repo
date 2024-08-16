@@ -5,8 +5,8 @@ import UserInterface.Forms.DMMainForm;
 public class App {
     public static void main(String[] args) throws Exception {
 
-       new DMMainForm("EcuFauna 2k24A");
-        
+        new DMMainForm("EcuFauna 2k24A");
+
         // // s.setIdSexo(3);
         // // s.setNombre("Hibrido");
         // // s.setFechaModifica("2023-05-18 17:39:46");
@@ -15,7 +15,7 @@ public class App {
         // // oS.update(s);
         // // System.out.println(oS.readBy(3).toString());
         // // System.out.println( s.getNombre() + " " + s.getFechaCrea() );
-        
+
         // DMAnimalDAO as = new DMAnimalDAO();
         // for (DMAnimalDTO s : as.readAll()) {
         // System.out.println(s.toString());

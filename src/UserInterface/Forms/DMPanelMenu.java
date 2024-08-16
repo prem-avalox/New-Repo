@@ -26,16 +26,18 @@ import UserInterface.CustomizeControl.DMTextField;
 
 public class DMPanelMenu extends JPanel {
     private String[] mdAlimentos = { "AX", "AXX", "AXY" };
+    private String[] mdIngesta = { "Carnivoro", "Herbivoro", "Omnivoro", "Insectivoro"};
     private DMAnimalBL dmAnimalBL = new DMAnimalBL();
     private DMTextField idField = new DMTextField();
     private DMTextField nameField = new DMTextField();
     private DMButton dmDeleteButton = new DMButton("Eliminar");
     private DMButton dmSaveButton = new DMButton("Guardar");
-    private DMButton dmAddAnimal = new DMButton("Crear Animal", DMStyles.COLOR_FONT);
-    private DMButton dmFeedAnimal = new DMButton("Alimentar", DMStyles.COLOR_FONT);
+    private DMButton dmAddAnimal = new DMButton("Crear Hormiga Larva", DMStyles.COLOR_FONT, DMStyles.FONT_SMALL);
+    private DMButton dmFeedAnimal = new DMButton("Genoalimento", DMStyles.COLOR_FONT, DMStyles.FONT_SMALL);
+    private DMButton dmIngestaNativaButton = new DMButton("Ingesta Nativa", DMStyles.COLOR_FONT);
     private DMLabel loginDmLabel1 = new DMLabel("Cedula del alumno:");
     private DMLabel loginDmLabel2 = new DMLabel("Nombres del alumno:");
-    private DMLabel dmLabelTitle = new DMLabel("Laboratorio de mutacion");
+    private DMLabel dmLabelTitle = new DMLabel("Hormiguero Virtual");
     private JTable dmAnimalTable;
     private DefaultTableModel tableModel;
 
@@ -63,6 +65,13 @@ public class DMPanelMenu extends JPanel {
         loginDmLabel1.setBounds(140, 20, 200, 20);
         loginDmLabel1.setHorizontalAlignment(DMStyles.ALIGNMENT_CENTER);
         idField.setBounds(380, 20, 200, 20);
+        idField.setFont(DMStyles.FONT);
+        idField.setText("175011121-1");
+        idField.setEditable(false);
+        nameField.setFont(DMStyles.FONT);
+        nameField.setText("Davalos Martin");
+        nameField.setEditable(false);
+        
         loginDmLabel2.setBounds(140, 60, 200, 20);
         loginDmLabel2.setHorizontalAlignment(DMStyles.ALIGNMENT_CENTER);
         nameField.setBounds(380, 60, 200, 20);
@@ -87,9 +96,15 @@ public class DMPanelMenu extends JPanel {
         auxButtonSouthPanel.setPreferredSize(new Dimension(680, 100));
         JComboBox dmGenoAlimento = new JComboBox(mdAlimentos);
         dmGenoAlimento.setBounds(80, 10, 200, 50);
+        JComboBox  dmIngesta = new JComboBox(mdIngesta);
+        dmIngesta.setBounds(80, 50, 200, 50);
         dmFeedAnimal.setBounds(480, 20, 140, 30);
+        dmIngestaNativaButton.setBounds(480, 60, 140, 30);
         auxButtonSouthPanel.add(dmFeedAnimal);
         auxButtonSouthPanel.add(dmGenoAlimento);
+        auxButtonSouthPanel.add(dmIngesta);
+        auxButtonSouthPanel.add(dmIngestaNativaButton);
+
 
         JPanel dmCenterPanel = new JPanel();
         dmCenterPanel.setLayout(new BorderLayout());
