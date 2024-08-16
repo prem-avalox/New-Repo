@@ -1,4 +1,4 @@
--- database: ../DataBase/DMDataBase.sqlite
+-- database: ../DataBase/MDDataBase.sqlite
 DROP TABLE IF EXISTS DMLocacion;
 
 DROP TABLE IF EXISTS DMAnimal;
